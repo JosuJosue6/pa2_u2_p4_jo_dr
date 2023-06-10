@@ -7,33 +7,38 @@ import org.springframework.stereotype.Repository;
 
 import com.example.demo.repository.modelo.Estudiante;
 
-@Repository
-public class EstudianteRepositoryImpl implements EstudianteRepository{
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 
-	private List<Estudiante> baseDatos = new ArrayList<>();
+@Repository
+@Transactional
+public class EstudianteRepositoryImpl implements EstudianteRepository{
+	
+	@PersistenceContext
+	private EntityManager entityManager;
 	
 	@Override
 	public void insertar(Estudiante estudiante) {
-		baseDatos.add(estudiante);
-		
+		this.entityManager.persist(estudiante);
 	}
 
 	@Override
-	public void actualizar(String cedula) {
-		// TODO Auto-generated method stub
-		
+	public void actualizar(Estudiante estudiante) {
+		this.entityManager.merge(estudiante);
 	}
 
 	@Override
 	public void eliminar(String cedula) {
-		// TODO Auto-generated method stub
+		Estudiante estudiante = this.seleccionar(cedula);
+		this.entityManager.remove(estudiante);
 		
 	}
 
 	@Override
 	public Estudiante seleccionar(String cedula) {
-		// TODO Auto-generated method stub
-		return null;
+
+		return this.entityManager.find(Estudiante.class, cedula); 
 	}
 	
 }

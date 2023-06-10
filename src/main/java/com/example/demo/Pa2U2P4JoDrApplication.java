@@ -14,6 +14,7 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 	@Autowired
 	private EstudianteService estudianteService;
 
+
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P4JoDrApplication.class, args);
 	}
@@ -22,13 +23,24 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		Estudiante estudiante = new Estudiante();
-		estudiante.setNombre("Josue");
-		estudiante.setApellido("Ocapana");
-		estudiante.setCedula("1720525516");
+		Estudiante estu = new Estudiante();
+		estu.setApellido("Ocapana");
+		estu.setNombre("Josue");
+		estu.setCedula("1720525516");
 		
-		this.estudianteService.insertar(estudiante);
+		//this.estudianteService.agregar(estu);
 		
+		//Estudiante estu2 = new Estudiante();
+		//estu2.setApellido("Rivas");
+		//estu2.setNombre("Diego");
+		//estu2.setCedula("1725051146");
+		
+		//this.estudianteService.agregar(estu2);
+		this.estudianteService.buscarPorCedula(estu.getCedula());
+		estu.setNombre("Anderson");
+		this.estudianteService.actualizar(estu);
+		this.estudianteService.borrar(estu.getCedula());
+	
 	}
 
 }

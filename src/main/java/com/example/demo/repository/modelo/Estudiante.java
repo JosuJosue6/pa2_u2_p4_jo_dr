@@ -1,16 +1,24 @@
 package com.example.demo.repository.modelo;
 
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
-@Getter
-@Setter
-@ToString
+//@Table(name = "estudiante", schema = "")
+@Table(name = "estudiante")
+@Entity
 public class Estudiante {
+	@Column(name = "estu_nombre")
 	private String nombre;
+	@Column(name = "estu_apellido")
 	private String apellido;
+	
+	@Id
+	@Column(name = "estu_cedula")
 	private String cedula;
+	
+	//SET y GET
 	public String getNombre() {
 		return nombre;
 	}
