@@ -1,18 +1,21 @@
 package com.example.demo;
 
+import java.math.BigDecimal;
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.example.demo.repository.modelo.Estudiante;
-import com.example.demo.service.EstudianteService;
+import com.example.demo.repository.modelo.CtaBancaria;
+import com.example.demo.service.CtaBancariaService;
 
 @SpringBootApplication
 public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 	
 	@Autowired
-	private EstudianteService estudianteService;
+	private CtaBancariaService bancariaService;
 
 
 	public static void main(String[] args) {
@@ -23,24 +26,15 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
 		
-		Estudiante estu = new Estudiante();
-		estu.setApellido("Ocapana");
-		estu.setNombre("Josue");
-		estu.setCedula("1720525516");
+		CtaBancaria bancaria = new CtaBancaria();
+		bancaria.setCedulaPropietario("1720525516");
+		bancaria.setFechaApertura(LocalDate.now());
+		bancaria.setNumero("123456");
+		bancaria.setTipo("A");
+		bancaria.setSaldo(new BigDecimal(100));
 		
-		//this.estudianteService.agregar(estu);
+		this.bancariaService.apertura(bancaria);
 		
-		//Estudiante estu2 = new Estudiante();
-		//estu2.setApellido("Rivas");
-		//estu2.setNombre("Diego");
-		//estu2.setCedula("1725051146");
-		
-		//this.estudianteService.agregar(estu2);
-		this.estudianteService.buscarPorCedula(estu.getCedula());
-		estu.setNombre("Anderson");
-		this.estudianteService.actualizar(estu);
-		this.estudianteService.borrar(estu.getCedula());
-	
 	}
 
 }
