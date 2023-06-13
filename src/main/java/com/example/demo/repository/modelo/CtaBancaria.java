@@ -11,7 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
-@Table(name = "cuentaBancaria")
+@Table(name = "cuentabancaria")
 @Entity
 public class CtaBancaria {
 		
@@ -21,19 +21,19 @@ public class CtaBancaria {
 	@Column(name = "cta_id")
 	private Integer id;
 	
-	@Column(name = "cta_numero")
+	@Column(name = "cta.numero")
 	private String numero;
 	
-	@Column(name = "cta_tipo")
+	@Column(name = "cta.tipo")
 	private String tipo;
 	
-	@Column(name = "cta_fechaApertura")
+	@Column(name = "cta.fechaapertura")
 	private LocalDate fechaApertura;
 	
-	@Column(name = "cta_saldo")
+	@Column(name = "cta.saldo")
 	private BigDecimal saldo;
 	
-	@Column(name = "cta_cedulaPropietario")
+	@Column(name = "cta.cedulapropietario")
 	private String cedulaPropietario;
 	
 	//SET Y GET

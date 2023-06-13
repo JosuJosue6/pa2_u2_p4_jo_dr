@@ -15,6 +15,7 @@ import com.example.demo.service.CtaBancariaService;
 public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 	
 	@Autowired
+	
 	private CtaBancariaService bancariaService;
 
 
@@ -31,7 +32,7 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 		bancaria.setFechaApertura(LocalDate.now());
 		bancaria.setNumero("123456");
 		bancaria.setTipo("A");
-		bancaria.setSaldo(new BigDecimal(100));
+		bancaria.setSaldo(new BigDecimal(50));
 		
 		this.bancariaService.apertura(bancaria);
 		
