@@ -37,8 +37,6 @@ public class CtaBancariaServiceImpl implements CtaBancariaService{
 		BigDecimal montoAumento = this.aumentoService.incremetar(saldo);
 		bancaria.setSaldo(montoAumento);
 		
-		
-
 		this.bancariaRepository.insertar(bancaria);
 	}
 
