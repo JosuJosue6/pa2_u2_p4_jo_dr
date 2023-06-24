@@ -10,15 +10,17 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.example.demo.repository.modelo.Alumno;
+import com.example.demo.repository.modelo.Estudiante;
 import com.example.demo.repository.modelo.Materia;
 import com.example.demo.repository.modelo.Matricula;
+import com.example.demo.service.EstudianteService;
 import com.example.demo.service.MatriculaService;
 
 @SpringBootApplication
 public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 	
 	@Autowired
-	private MatriculaService matriculaService;
+	private EstudianteService estudianteService;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(Pa2U2P4JoDrApplication.class, args);
@@ -27,28 +29,29 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-
-		//ENTONCES NOSOTROS VEMOS EN LA DB LA CANTIDAD DE LIBROS DE DIHCO AUTOR. :)
 		
-		Matricula matricula = new Matricula();
+		/*Estudiante estudiante = new Estudiante();
+		estudiante.setApellido("Rivas");
+		estudiante.setNombre("Diego");
+		estudiante.setCedula("246");
 		
-		Alumno alumno = new Alumno();
-		alumno.setNombre("Pablito");
+		this.estudianteService.agregar(estudiante);*/
 		
-		Materia materia = new Materia();
-		materia.setNombre("Optimizacion");
+		System.out.println("\nQuery");
+		System.out.println(this.estudianteService.buscarPorApellido("Rivas"));
 		
-		matricula.setMateria(materia);
-		matricula.setAlumno(alumno);
-		matricula.setFecha(LocalDateTime.now());
-		matricula.setNumero("2");
+		System.out.println("\nQuery Reporte");
+		List<Estudiante> estudiante2 = this.estudianteService.reportePorApellido("Ocapana");
+		for(Estudiante estu: estudiante2) {
+			System.out.println(estu);
+		}
 		
-		List<Matricula> matriculas = new ArrayList<>();
-		matriculas.add(matricula);
-		alumno.setMatriculas(matriculas);
-		materia.setMatriculas(matriculas);
 		
-		this.matriculaService.agregar(matricula);
+		System.out.println("\nQuery nombre y apellido");
+		System.out.println(this.estudianteService.buscarPorApellidoyNombre("Rivas", "Diego"));
+		
+		System.out.println("\nTypedQuery");
+		System.out.println(this.estudianteService.buscarPorApellidoTyped("Rivas"));
 		
 	}
 
