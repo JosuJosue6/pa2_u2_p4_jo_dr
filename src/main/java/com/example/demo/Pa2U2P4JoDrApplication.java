@@ -37,7 +37,7 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 		
 		this.estudianteService.agregar(estudiante);*/
 		
-		System.out.println("\nQuery");
+		/*System.out.println("\nQuery");
 		System.out.println(this.estudianteService.buscarPorApellido("Rivas"));
 		
 		System.out.println("\nQuery Reporte");
@@ -52,7 +52,9 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 		
 		System.out.println("\nTypedQuery");
 		System.out.println(this.estudianteService.buscarPorApellidoTyped("Rivas"));
-		
+		*/
+		System.out.println("\nNamedQuery");
+		System.out.println(this.estudianteService.buscarPorApellidoNamed("Rivas"));		
 	}
 
 }

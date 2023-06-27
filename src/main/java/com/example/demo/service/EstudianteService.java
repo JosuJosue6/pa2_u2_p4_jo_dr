@@ -13,4 +13,5 @@ public interface EstudianteService {
 	public List<Estudiante> reportePorApellido(String apellido);
 	public Estudiante buscarPorApellidoyNombre(String apellido, String nombre);
 	public Estudiante buscarPorApellidoTyped(String apellido);
+	public Estudiante buscarPorApellidoNamed(String apellido);
 }

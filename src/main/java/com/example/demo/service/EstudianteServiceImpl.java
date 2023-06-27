@@ -64,6 +64,12 @@ public class EstudianteServiceImpl implements EstudianteService {
 		// TODO Auto-generated method stub
 		return this.estudianteRepository.seleccionarPorApellidoTyped(apellido);
 	}
+
+	@Override
+	public Estudiante buscarPorApellidoNamed(String apellido) {
+		// TODO Auto-generated method stub
+		return this.estudianteRepository.seleccionarPorApellidoNamed(apellido);
+	}
 	
 	
 
