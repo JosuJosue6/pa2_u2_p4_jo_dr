@@ -53,8 +53,28 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 		System.out.println("\nTypedQuery");
 		System.out.println(this.estudianteService.buscarPorApellidoTyped("Rivas"));
 		*/
-		System.out.println("\nNamedQuery");
+		System.out.println("\nNamedQuery con typed");
 		System.out.println(this.estudianteService.buscarPorApellidoNamed("Rivas"));		
+		
+		System.out.println("\nNamedQuery Normal");
+		System.out.println(this.estudianteService.buscarPorApellidoNamedQuery("Rivas"));
+		
+		System.out.println("\nNamedQuery Native");
+		System.out.println(this.estudianteService.buscarPorApellidoNativeQuery("Rivas"));
+		
+		System.out.println("\nNative QUery Named");
+		System.out.println(this.estudianteService.buscarPorApellidoNativeQueryNamed("Rivas"));
+		
+		System.out.println("Nombre NamedQuery");
+		System.out.println(this.estudianteService.buscarPorNombreNamedQuery("Diego"));
+		
+		System.out.println("Nombre NativeQueryNamed");
+		System.out.println(this.estudianteService.buscarPorNombreNativeQueryNamed("Diego"));
+		
+		
+		System.out.println("Criteri API Query");
+		System.out.println(this.estudianteService.buscarPorApellidoCriteriaAPIQuery("Rivas"));
+		
 	}
 
 }
