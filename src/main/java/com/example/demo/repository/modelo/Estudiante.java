@@ -38,6 +38,9 @@ public class Estudiante {
 
 	@Column(name = "estu_apellido")
 	private String apellido;
+	
+	@Column(name = "estu_peso")
+	private Double peso;
 
 	// SET y GET
 	public String getNombre() {
@@ -62,6 +65,22 @@ public class Estudiante {
 
 	public void setCedula(String cedula) {
 		this.cedula = cedula;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(Double peso) {
+		this.peso = peso;
 	}
 
 	@Override

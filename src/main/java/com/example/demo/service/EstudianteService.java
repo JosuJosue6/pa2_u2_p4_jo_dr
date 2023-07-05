@@ -22,4 +22,9 @@ public interface EstudianteService {
 	
 	public Estudiante buscarPorApellidoCriteriaAPIQuery(String apellido);
 	
+	public Estudiante buscarEstudianteDinamico(String nombre, String apellido, Double peso);
+	
+	public int borrarPorNombre(String nombre);
+	
+	public int actualizarPorApellido(String nombre,String apellidio);
 }

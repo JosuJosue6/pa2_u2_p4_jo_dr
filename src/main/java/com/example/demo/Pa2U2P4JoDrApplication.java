@@ -30,6 +30,55 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 	public void run(String... args) throws Exception {
 		
 		
+		//MAIN
+		/*Estudiante estudiante1 = new Estudiante();
+		estudiante1.setApellido("Apellido 1");
+		estudiante1.setNombre("Nombre 1");
+		estudiante1.setCedula("123456");
+		estudiante1.setPeso(65.7);
+		
+		this.estudianteService.agregar(estudiante1);
+		
+		Estudiante estudiante2 = new Estudiante();
+		estudiante2.setApellido("Apellido 2");
+		estudiante2.setNombre("Nombre 2");
+		estudiante2.setCedula("123456 -2");
+		estudiante2.setPeso(120.5);
+		
+		this.estudianteService.agregar(estudiante2);*/
+		
+		System.out.println("Criteri API Query Estudiante dinamico MENOR");
+		System.out.println(this.estudianteService.buscarEstudianteDinamico("Nombre 1","Apellido 1",50.0));
+		
+		
+		System.out.println("Criteri API Query Estudiante dinamico MAYOR");
+		System.out.println(this.estudianteService.buscarEstudianteDinamico("Nombre 1","Apellido 1",115.0));
+		
+	
+		System.out.println("Eliminar por Nombre");
+		System.out.println(this.estudianteService.borrarPorNombre("Josue"));
+		
+		System.out.println("Actualizar por Apellido");
+		System.out.println(this.estudianteService.actualizarPorApellido("Alexander","Rivas"));
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		/*Estudiante estudiante = new Estudiante();
 		estudiante.setApellido("Rivas");
 		estudiante.setNombre("Diego");
@@ -53,6 +102,9 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 		System.out.println("\nTypedQuery");
 		System.out.println(this.estudianteService.buscarPorApellidoTyped("Rivas"));
 		*/
+		/*
+		  
+		
 		System.out.println("\nNamedQuery con typed");
 		System.out.println(this.estudianteService.buscarPorApellidoNamed("Rivas"));		
 		
@@ -71,10 +123,9 @@ public class Pa2U2P4JoDrApplication implements CommandLineRunner{
 		System.out.println("Nombre NativeQueryNamed");
 		System.out.println(this.estudianteService.buscarPorNombreNativeQueryNamed("Diego"));
 		
-		
 		System.out.println("Criteri API Query");
 		System.out.println(this.estudianteService.buscarPorApellidoCriteriaAPIQuery("Rivas"));
-		
+		 */
 	}
 
 }
