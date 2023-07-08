@@ -5,10 +5,12 @@ import java.util.Set;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 
@@ -34,8 +36,9 @@ public class Autor {
 	private String apellido;
 	
 	//A la lista la represento con un SET de libros
-	@ManyToMany(mappedBy = "autores",cascade = CascadeType.ALL)
+	@ManyToMany(mappedBy = "autores",cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private Set<Libro> libros;
+	
 	
    //SETTERS Y GETTERS
 	public Integer getId() {

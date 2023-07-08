@@ -1,14 +1,20 @@
 package com.example.demo.repository;
 
+import java.util.List;
+
+import org.hibernate.annotations.Fetch;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.repository.modelo.Libro;
+import com.example.demo.repository.modelo.dto.LibroDTO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import jakarta.transaction.Transactional;
 
-@Repository
+
+@Repository()
 @Transactional
 public class LibroRepositoryImpl implements LibroRepository{
 		
@@ -39,6 +45,16 @@ public class LibroRepositoryImpl implements LibroRepository{
 	public Libro seleccionarPorId(Integer id) {
 		// TODO Auto-generated method stub
 		return this.entityManager.find(Libro.class, id);
+	}
+
+	@Override
+	public List<LibroDTO> seleccinarDTO() {
+		TypedQuery<LibroDTO> myQuery = this.entityManager.createQuery(
+				"SELECT NEW com.example.demo.repository.modelo.dto.LibroDTO(l.titulo, t.editoreial) FROM Libro l ",
+				LibroDTO.class);
+		List<LibroDTO> f = myQuery.getResultList();
+
+		return f;
 	}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Repository;
 
 import com.example.demo.repository.modelo.Estudiante;
+import com.example.demo.repository.modelo.dto.EstudianteDTO;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -228,11 +229,26 @@ public class EstudianteRepositoryImpl implements EstudianteRepository {
 	public int actualizarPorApellido(String nombre, String apellido) {
 		// TODO Auto-generated method stub
 		// UPDATE estudiante SET estu_nombre = ? WHERE estu_apellido = ?
-		//UPDATE Estudiante e SET e.nombre = :datoNombre WHERE e.apellido = :datoApellido
-		Query myQuery = this.entityManager.createQuery("UPDATE Estudiante e SET e.nombre = :datoNombre WHERE e.apellido = :datoApellido");
+		// UPDATE Estudiante e SET e.nombre = :datoNombre WHERE e.apellido =
+		// :datoApellido
+		Query myQuery = this.entityManager
+				.createQuery("UPDATE Estudiante e SET e.nombre = :datoNombre WHERE e.apellido = :datoApellido");
 		myQuery.setParameter("datoNombre", nombre);
 		myQuery.setParameter("datoApellido", apellido);
 		return myQuery.executeUpdate();// numero de registros afectados
+	}
+
+	@Override
+	public List<EstudianteDTO> seleccionarTodosDTO() {
+		// Como ya sabemos el retorno es mejor ponerlo TYPED
+		TypedQuery<EstudianteDTO> myQuery = this.entityManager.createQuery(
+				"SELECT NEW com.example.demo.repository.modelo.dto.EstudianteDTO(e.nombre, e.apellido) FROM Estudiante e ",
+				EstudianteDTO.class);
+		 List<EstudianteDTO> f = myQuery.getResultList();
+		 //f.forEach(System.out::println);
+		 
+
+		return  f;
 	}
 
 }
