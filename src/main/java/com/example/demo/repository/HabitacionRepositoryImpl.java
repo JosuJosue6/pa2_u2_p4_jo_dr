@@ -14,9 +14,9 @@ public class HabitacionRepositoryImpl implements HabitacionRepository{
 
 	@PersistenceContext
 	private EntityManager entityManager;
-
+	
 	@Override
-	public void insertar(Habitacion habitacion) {
+	public void ingresar(Habitacion habitacion) {
 		// TODO Auto-generated method stub
 		this.entityManager.persist(habitacion);
 	}
@@ -28,16 +28,16 @@ public class HabitacionRepositoryImpl implements HabitacionRepository{
 	}
 
 	@Override
-	public void eliminarPorNumero(Integer idHabitacion) {
+	public void eliminarPorId(Integer id) {
 		// TODO Auto-generated method stub
-		Habitacion habitacion = this.seleccionarPorNumero(idHabitacion);
-		this.entityManager.remove(habitacion);
+		Habitacion habitacionEncontrada = this.seleccionarPorId(id);
+		this.entityManager.remove(habitacionEncontrada);
 	}
 
 	@Override
-	public Habitacion seleccionarPorNumero(Integer idHabitacion) {
+	public Habitacion seleccionarPorId(Integer id) {
 		// TODO Auto-generated method stub
-		return this.entityManager.find(Habitacion.class, idHabitacion);
+		return this.entityManager.find(Habitacion.class, id);
 	}
 
 }

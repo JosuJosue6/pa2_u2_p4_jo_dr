@@ -7,15 +7,15 @@ import com.example.demo.repository.HabitacionRepository;
 import com.example.demo.repository.modelo.Habitacion;
 
 @Service
-public class HabitacionServiceImpl implements HabitacionService{
+public class HabitacionServiceImpl implements HabitacionService {
 
 	@Autowired
 	private HabitacionRepository habitacionRepository;
-
+	
 	@Override
 	public void agregar(Habitacion habitacion) {
 		// TODO Auto-generated method stub
-		this.habitacionRepository.insertar(habitacion);
+		this.habitacionRepository.ingresar(habitacion);
 	}
 
 	@Override
@@ -25,16 +25,15 @@ public class HabitacionServiceImpl implements HabitacionService{
 	}
 
 	@Override
-	public void borrarPorNumero(Integer idHabitacion) {
+	public void borrarPorId(Integer id) {
 		// TODO Auto-generated method stub
-		this.habitacionRepository.eliminarPorNumero(idHabitacion);
+		this.habitacionRepository.eliminarPorId(id);
 	}
 
 	@Override
-	public Habitacion buscarPorNumero(Integer idHabitacion) {
+	public Habitacion buscarPorId(Integer id) {
 		// TODO Auto-generated method stub
-		return this.habitacionRepository.seleccionarPorNumero(idHabitacion);
+		return this.habitacionRepository.seleccionarPorId(id);
 	}
 
 }
-
